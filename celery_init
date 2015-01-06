@@ -1,0 +1,4 @@
+#!/bin/sh
+cd /home/www-data/web2py
+exec celery -A applications.ferry_boat.modules.docker_tasks worker -b "amqp://$MQ_PORT_5672_TCP_ADDR:$MQ_PORT_5672_TCP_PORT" --loglevel=info 2>&1
+echo 'Celery worker running'
